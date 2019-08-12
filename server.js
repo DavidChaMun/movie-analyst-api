@@ -47,17 +47,9 @@ app.get('/reviewers', function(req, res){
 
 // Implement the publications API endpoint
 app.get('/publications', function(req, res){
-  var publications = [
-    {name : 'The Daily Reviewer', avatar: 'glyphicon-eye-open'},
-    {name : 'International Movie Critic', avatar: 'glyphicon-fire'},
-    {name : 'MoviesNow', avatar: 'glyphicon-time'},
-    {name : 'MyNextReview', avatar: 'glyphicon-record'},
-    {name : 'Movies n\' Games', avatar: 'glyphicon-heart-empty'},
-    {name : 'TheOne', avatar : 'glyphicon-globe'},
-    {name : 'ComicBookHero.com', avatar : 'glyphicon-flash'}
-  ];
-
-  res.json(publications);
+  dao.getPublications((err, rows) => {
+    res.json(rows);
+  });  
 })
 
 // Implement the pending reviews API endpoint
