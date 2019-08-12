@@ -46,12 +46,9 @@ app.get('/publications', function(req, res){
 
 // Implement the pending reviews API endpoint
 app.get('/pending', function(req, res){
-  var pending = [
-    {title : 'Superman: Homecoming', release: '2017', score: 10, reviewer: 'Chris Harris', publication: 'International Movie Critic'},
-    {title : 'Wonder Woman', release: '2017', score: 8, reviewer: 'Martin Thomas', publication : 'TheOne'},
-    {title : 'Doctor Strange', release : '2016', score: 7, reviewer: 'Anthony Miller', publication : 'ComicBookHero.com'}
-  ]
-  res.json(pending);
+  dao.getPendings((err, rows) => {
+    res.json(rows)
+  });
 })
 
 const PORT = process.env.PORT || config.node_port;
