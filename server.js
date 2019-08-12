@@ -20,13 +20,13 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-// function getMovies(callback) {    
-//        connection.query("SELECT * FROM movie_db.movies",
-//            function (err, rows) {
-//                callback(err, rows); 
-//            }
-//        );    
-// }
+function getMovies(callback) {    
+    connection.query("SELECT * FROM movie_db.movies",
+        function (err, rows) {
+            callback(err, rows); 
+        }
+    );    
+}
 
 //Testing endpoint
 app.get('/', function(req, res){
@@ -36,17 +36,9 @@ app.get('/', function(req, res){
 
 // Implement the movies API endpoint
 app.get('/movies', function(req, res){
-  var movies = [
-    {title : 'Suicide Squad', release: '2016', score: 8, reviewer: 'Robert Smith', publication : 'The Daily Reviewer'},    
-    {title : 'Batman vs. Superman', release : '2016', score: 6, reviewer: 'Chris Harris', publication : 'International Movie Critic'},
-    {title : 'Captain America: Civil War', release: '2016', score: 9, reviewer: 'Janet Garcia', publication : 'MoviesNow'},
-    {title : 'Deadpool', release: '2016', score: 9, reviewer: 'Andrew West', publication : 'MyNextReview'},
-    {title : 'Avengers: Age of Ultron', release : '2015', score: 7, reviewer: 'Mindy Lee', publication: 'Movies n\' Games'},
-    {title : 'Ant-Man', release: '2015', score: 8, reviewer: 'Martin Thomas', publication : 'TheOne'},
-    {title : 'Guardians of the Galaxy', release : '2014', score: 10, reviewer: 'Anthony Miller', publication : 'ComicBookHero.com'},
-  ]
-
-  res.json(movies);
+  getMovies((err, rows) => {
+    res.json(rows);
+  })
 })
 
 //app.get('/', function(req, res, next) {   
