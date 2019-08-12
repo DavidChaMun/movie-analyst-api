@@ -26,10 +26,17 @@ function getMovies(callback) {
 function getPublications(callback) {
     connection.query("SELECT * FROM movie_db.publication",
     (err, rows) => {callback(err, rows)}
-    )
+    );
+}
+
+function getReviewers(callback){
+    connection.query("SELECT * FROM movie_db.reviewer",
+    (err, rows) => {callback(err, rows)}
+    );
 }
 
 module.exports = {
     getMovies,
-    getPublications
+    getPublications,
+    getReviewers
 }
