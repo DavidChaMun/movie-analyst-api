@@ -88,7 +88,13 @@ app.get('/pending', function(req, res){
   ]
   res.json(pending);
 })
-console.log("server listening through port: "+process.env.PORT);
+
+const PORT = process.env.PORT || 3000;
+
+if(!process.env.PORT){
+  console.log("WARNING: no envirorment configuration detected for PORT the default was used");
+}
+console.log("server listening through port: " + PORT);
 // Launch our API Server and have it listen on port 3000.
-app.listen(process.env.PORT || 3000);
+app.listen(PORT);
 module.exports = app;
