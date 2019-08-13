@@ -2,15 +2,26 @@
 var express = require('express');
 var app = express();
 var dao = require('./data_model/dao')
+var os = require( 'os' );
 const configuration = require("./config/config.json")
-
 
 const envirorment = process.env.NODE_ENV || "development";
 const config = configuration[envirorment];
 
 //Testing endpoint
 app.get('/', function(req, res){
-  var response = [{response : 'hello'}, {code : '200'}]
+  const networkInterfaces = os.networkInterfaces();
+  var current_ip = null;
+
+  for (const inter of Object.values(networkInterfaces)) {
+    for(const inter_i of inter) {
+      if(inter_i["family"] == 'IPv4' && inter_i["internal"] == false) {
+        current_ip = inter_i["address"];
+      }
+    }
+  }
+
+  var response = [{response : {ip: current_ip}}, {code : '200'}]
   res.json(response);
 })
 
@@ -20,15 +31,6 @@ app.get('/movies', function(req, res){
     res.json(rows);
   })
 })
-
-//app.get('/', function(req, res, next) {   
-    //now you can call the get-driver, passing a callback function
-//    getMovies(function (err, moviesResult){ 
-       //you might want to do something is err is not null...      
-//       res.json(moviesResult);
-
-//    });
-//});
 
 // Implement the reviewers API endpoint
 app.get('/reviewers', function(req, res){
