@@ -16,7 +16,7 @@ var connection = mysql.createConnection({
 
   //Queries the database
 function getMovies(callback) {    
-    connection.query("SELECT * FROM movie_db.movies",
+    connection.query("SELECT * FROM movie_db.movie",
         function (err, rows) {
             callback(err, rows); 
         }
