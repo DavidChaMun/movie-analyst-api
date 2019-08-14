@@ -11,6 +11,12 @@
         "node_port": 8080,
         "database": "movie_db",
         "host": "mysql-test.cxrpknmq0hfi.us-west-2.rds.amazonaws.com"
+    },
+    "test": {
+        "config_id": "test",
+        "node_port": 3000,
+        "database": "movie_db",
+        "host": "localhost"
     }
 
 }

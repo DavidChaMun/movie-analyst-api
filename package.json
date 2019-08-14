@@ -32,6 +32,7 @@
     "mocha-junit-reporter": "^1.13.0",
     "nodemon": "^1.19.1",
     "should": "^11.2.1",
-    "supertest": "^3.0.0"
+    "supertest": "^3.0.0",
+    "tv4-node": "^0.0.1"
   }
 }

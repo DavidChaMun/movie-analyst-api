@@ -2723,6 +2723,18 @@ tunnel-agent@^0.6.0:
   dependencies:
     safe-buffer "^5.0.1"
 
+tv4-node@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/tv4-node/-/tv4-node-0.0.1.tgz#d556438e4940629985e3322339fa4ab9618c50d0"
+  integrity sha512-Vzc1TugxH5XZ21HRV98YAdSyWJXhDsBzVceiD0kemY19vG+g64Iw6b27VJHnFOyKAa6wr834j61vHXj5VRl6ew==
+  dependencies:
+    tv4 "~1.0.0"
+
+tv4@~1.0.0:
+  version "1.0.18"
+  resolved "https://registry.yarnpkg.com/tv4/-/tv4-1.0.18.tgz#7397769f00358e33bf528dc5c8764c61b6de8245"
+  integrity sha1-c5d2nwA1jjO/Uo3FyHZMYbbegkU=
+
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
