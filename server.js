@@ -21,7 +21,7 @@ app.get('/', function(req, res){
     }
   }
 
-  var response = [{response : {ip: current_ip}}, {code : '200'}]
+  var response = [{response : {ip: current_ip}}, {code : '200'}, {env: envirorment}]
   res.json(response);
 })
 

@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha",
     "start": "SET NODE_ENV=development && node server.js",
-    "start-dev-l": "export NODE_ENV=development && nodemon server.js"
+    "start-dev-l": "export NODE_ENV=development && nodemon server.js",
+    "start-prod" : "node server.js"  
   },
   "repository": {
     "type": "git",
