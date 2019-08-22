@@ -8,6 +8,7 @@ const configuration = require("./config/config.json")
 const envirorment = process.env.NODE_ENV || "development";
 const config = configuration[envirorment];
 
+
 //Testing endpoint
 app.get('/', function(req, res){
   const networkInterfaces = os.networkInterfaces();
@@ -27,6 +28,7 @@ app.get('/', function(req, res){
 
 // Implement the movies API endpoint
 app.get('/movies', function(req, res){
+  
   dao.getMovies((err, rows) => {
     res.json(rows);
   })

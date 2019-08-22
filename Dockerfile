@@ -9,6 +9,8 @@ COPY . /app
 RUN yarn install
 
 ENV NODE_ENV production
+ARG DB_HOST
+ENV DB_HOST=$DB_HOST
 ENV PORT=8000
 
 CMD yarn start-prod
